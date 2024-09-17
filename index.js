@@ -2,6 +2,7 @@
 // To comment out the example code or any other code in the file to make for cleaner and less cluttered 
 // console output, we recommend using Cmd + / keyboard shortcut to comment out lines of code as you go. This command works for the HTML file as well.
 // Read all instructions and content.
+// Display (to console using console.log) and test all results where appropriate in the code.
 // Please remember to uncomment your code before submission.
 
 // Challenge 1.0
@@ -39,6 +40,7 @@ function sum(a, b) {
 console.log(sum(5, 7));
 
 // Write a function that takes two strings as arguments and returns their concatenation (hint: we used concatenation in Challenge 1.1). 
+// Use "typeof" to check the arguments are both strings before returning, otherwise return "Invalid Arguments!"
 // Call the function with different arguments and display the results in the console.
 
 // Your code here
@@ -64,7 +66,7 @@ for (let i = 1; i <= 10; i++) {
     console.log(i);
 }
 
-// Write a program that prints the even numbers from 1 to 20 using a for loop.
+// Write a program that prints only the even numbers from 1 to 20 using a for loop.
 
 // Your code here
 
@@ -94,6 +96,7 @@ console.log(arraySum(numbers));
 
 // Create an array of your five favorite foods and write a program to print each food. 
 // Then, write a function that takes an array of foods and returns a string listing all the foods separated by commas.
+// Hint: use .join()
 
 // Your code here
 
@@ -132,6 +135,8 @@ function updateJob(p, newJob) {
 console.log(updateJob({name: "Peter", age: 21, job: "Engineer"}, "Manager"));
 
 // Write a function that removes the last item from an array. 
+// Hint: use .pop() instead of .push()
+
 // Then, write a function that updates the year of a car object.
 
 // Your code here
