@@ -200,14 +200,31 @@ document.body.appendChild(newElement);
 // Now under the section marked "Challenge 4.1 | Your Turn", write the event handling for a button that changes the background color of the colorDiv when clicked.
 // See the section marked "Challenge 4.1.2 | Example" in index.html for a more advanced example of using event listeners to log the coordinates of a mouse click within a specified area.
 
+
 // Challenge 5.1
-// We will now learn about using the Fetch API in JS. API stands for Application Programming Interface, and allows two pieces of software to communicate data.
+// In Javascript, we simplify managing multiple asynchronous operations by using promises.
+// Asynchronous operations allow multiple tasks to run simultaneously, running in the background so other code can be executed.
+// This is particularly useful for operations that take a long time, like fetching API data.
+// Promises are essentially objects that are placeholders for values available once asynchronous operations are done running.
+// See the section marked Challenge 5.1 | Example in the index.html file for an example of how to write a Promise.
+
+// In the index.html file, under the section marked Challenge 5.1 | Your Turn, do the following:
+// Write a function that returns a promise that resolves if a random number is greater than 0.5 and rejects otherwise, use `.then()` and `.catch()` to handle it.
+// Ensure that the result of the promise is displayed in the paragraph with the ID yourResult.
+// The text color of the result should be set to green for success and red for failure. 
+
+// Challenge 5.2
+// We will now learn about using the Fetch API in JS. 
+// The Fetch function returns a Promise that is fulfilled by a Response object (the server's response).
+// The Promise will only be rejected based on network errors by the function, but does not fail on 404 or other error response codes.
+// In those cases, it is handled by the .then() portion of the function, whereas network errors are handled by the .catch().
+// API stands for Application Programming Interface, and allows two pieces of software to communicate data.
 // The Fetch API provides us with a JavaScript interface for making HTTP requests and processing the responses.
 // HTTP stands for Hypertext Transfer Protocol and works as a request-response protocol to communicate information between clients and servers.
 // In our case, we are the client that needs data from a server, which is our external API(s).
 // We will primarily be using the GET HTTP method, which is used to request data from a specified resource.
 
-// Challenge 5.1.1 | Example
+// Challenge 5.2.1 | Example
 // Here is an example of using the Fetch API to get data from a specific API endpoint. This example does not process the JSON response.
 // Helpful tip: To test API endpoints quickly in the terminal when programming, use "curl [API endpoint URL]".
 
@@ -240,7 +257,7 @@ function displayRawData(data) {
     dataDisplay.appendChild(rawElement);
 }
 
-// Challenge 5.1.2 | Example
+// Challenge 5.2.2 | Example
 // Now that we've seen what the JSON response from the API endpoint looks like, we can take the API data and 
 // process/format it to be more readable and useful to us. See the example below for how we can do this.
 
@@ -273,7 +290,7 @@ function displayData(data) {
 
 // Write a program that makes a GET request to the public API `https://api.github.com/users` using Fetch API 
 // and logs the response in a nice format similar to Example. Display the login and the url of each user.
-// Hint: use the helpful tip from the example in Challenge 5.1.1 to reference the JSON output quickly.
+// Hint: use the helpful tip from the example in Challenge 5.2.1 to reference the JSON output quickly.
 
 function fetchYourData() {
     // Your code here
@@ -284,18 +301,6 @@ function displayYourData(data) {
     dataDisplay.innerHTML = ''; 
     // Your code here
 }
-
-// Challenge 5.2
-// In Javascript, we simplify managing multiple asynchronous operations by using promises.
-// Asynchronous operations allow multiple tasks to run simultaneously, running in the background so other code can be executed.
-// This is particularly useful for operations that take a long time, like fetching API data.
-// Promises are essentially objects that are placeholders for values available once asynchronous operations are done running.
-// See the section marked Challenge 5.2 | Example in the index.html file for an example of how to write a Promise.
-
-// In the index.html file, under the section marked Challenge 5.2 | Your Turn, do the following:
-// Write a function that returns a promise that resolves if a random number is greater than 0.5 and rejects otherwise, use `.then()` and `.catch()` to handle it.
-// Ensure that the result of the promise is displayed in the paragraph with the ID yourResult.
-// The text color of the result should be set to green for success and red for failure. 
 
 // Challenge 6
 // Deploy your project to GitHub Pages. Follow the instructions in instructions.ipynb.
