@@ -10,7 +10,7 @@
 console.log("Hello, World!");
 
 // Write JavaScript code below to display "Welcome to JavaScript!" in the console.
-
+console.log("Welcome to JavaScript!");
 // Your code here
 
 // Challenge 1.1
@@ -19,7 +19,7 @@ console.log("Hello, World!");
 let firstName = "Katelyn";
 let age = 20;
 let isStudent = true;
-console.log(name, age, isStudent);
+console.log(firstName, age, isStudent);
 
 // The following examples are given to illustrate how to use string concatenation, simple arithmetic/manipulation of numerical variables, 
 // and console logging with variables works in Javascript.
@@ -29,7 +29,10 @@ console.log(greeting, nextYearAge);
 
 // Declare variables to store your favorite color, your height in centimeters, and a boolean indicating if you like JavaScript. 
 // Then, perform some operations with these variables and display the results in the console.
-
+let fav_color = 'blue';
+let height = 1.62;
+let like_javascript = true;
+console.log('I like ' + fav_color + ', my height is ' + height + ', and it is ' + like_javascript + ' that I like JavaScript.');
 // Your code here
 
 //Challenge 1.2
@@ -42,8 +45,20 @@ console.log(sum(5, 7));
 // Write a function that takes two strings as arguments and returns their concatenation (hint: we used concatenation in Challenge 1.1). 
 // Use "typeof" to check the arguments are both strings before returning, otherwise return "Invalid Arguments!"
 // Call the function with different arguments and display the results in the console.
-
 // Your code here
+
+function concatenateStrings(string1, string2) {
+    if (typeof string1 === 'string' && typeof string2 === 'string') {
+        return string1 + string2; 
+    } else {
+        return 'Invalid Arguments!'; 
+    }
+}
+let result1 = concatenateStrings('apple', 'orange');
+console.log(result1); 
+
+let result2 = concatenateStrings('apple', 123);
+console.log(result2); 
 
 // Challenge 1.3
 // Here is an example of if-else statements in JSON. It logs to console depending on whether certain conditions are fulfilled.
@@ -57,8 +72,20 @@ if (number > 0) {
 }
 
 // Write a program that checks if a string is empty, has only one character, or has multiple characters, and displays the result.
-
 // Your code here
+function checkStringLength(str) {
+    if (str.length === 0) {
+        console.log('The string is empty.');
+    } else if (str.length === 1) {
+        console.log('The string has one character.');
+    } else {
+        console.log('The string has multiple characters.');
+    }
+}
+checkStringLength('');      
+checkStringLength('A');      
+checkStringLength('Hello');
+
 
 // Challenge 1.4
 // Here we have an example of a for loop that prints its incrementation to the console from 1 to 10.
@@ -67,8 +94,12 @@ for (let i = 1; i <= 10; i++) {
 }
 
 // Write a program that prints only the even numbers from 1 to 20 using a for loop.
-
 // Your code here
+let even_sum = 0;
+for (let i = 1; i <= 20; i += 2) {
+    even_sum += 1
+    console.log(i);
+}
 
 // Challenge 1.5
 // Here we have an example of a while loop that prints its incrementation to the console from 1 to 10.
@@ -79,8 +110,12 @@ while (i <= 10) {
 }
 
 // Write a program that prints the even numbers from 20 to 1 using a while loop.
-
 //Your code here
+let j = 20;
+while (j >= 1) {
+    console.log(j)
+    i -= 2;
+}
 
 // Challenge 2.1
 // Here we have a function that takes in an array and adds the sum of all the numbers in the array as an output.
@@ -99,6 +134,14 @@ console.log(arraySum(numbers));
 // Hint: use .join()
 
 // Your code here
+let fav_food = ['dim_sum', 'ramen', 'xiaolongbao', 'noodle', 'tomyum']
+fav_food.forEach(food => console.log(food));
+
+function print_food_with_comma(fav_food) {
+    const fav_food_res = array.map(fav_food).join(',');
+    console.log(fav_food_res);    
+}
+print_food_with_comma(fav_food);
 
 // Challenge 2.2
 // Here we define a Person object with various properties like name, age, and job.
@@ -112,12 +155,21 @@ console.log(person);
 function printPerson(p) {
     console.log(`Name: ${p.name}, Age: ${p.age}, Job: ${p.job}`);
 }
-printPerson(person);
 
 // Create an object representing a car (make, model, year). 
 // Then, write a function that takes a car object and prints its properties.
 
 // Your code here
+let car = {
+    make: 'BMW',
+    model: 'X5',
+    year: 2024
+};
+console.log(car);
+
+function printCar(c) {
+    console.log(`Make: ${c.make}, Model: ${c.model}, Year: ${c.year}`);
+}
 
 // Challenge 2.3
 // Here we have a function that manipulates an array of numbers that we previously defined in Challenge 2.1.
@@ -136,10 +188,19 @@ console.log(updateJob({name: "Peter", age: 21, job: "Engineer"}, "Manager"));
 
 // Write a function that removes the last item from an array. 
 // Hint: use .pop() instead of .push()
+function removeItem(arr) {
+    arr.pop();
+    return arr;
+}
+console.log(removeItem([1, 2, 3]));
 
 // Then, write a function that updates the year of a car object.
-
 // Your code here
+function updateYear(car, newYear) {
+    car.year = newYear;
+    return p;
+}
+console.log(updateYear({make: "BMW", model: "X5", year: 2022}, 2024)); 
 
 // Incorporating HTML with JS
 
