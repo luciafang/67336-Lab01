@@ -41,7 +41,9 @@
         <h1 style="color: green; text-align: center;">Challenge 3.2 | Example</h1>
         <!-- Challenge 3.2 | Example -->
         <button id="changeContentBtn">Change The Content Below</button>
-        <div id="changeContentDiv"><h4>Original Content</h4></div>
+        <div id="changeContentDiv">
+            <h4>Original Content</h4>
+        </div>
         <script>
             document.getElementById("changeContentBtn").addEventListener("click", function() {
                 document.getElementById("changeContentDiv").textContent = "Content Changed!";
@@ -56,10 +58,13 @@
         <h1 style="color: blue; text-align: center;">Challenge 3.2 | Your Turn</h1>
         <!-- Challenge 3.2 | Your Turn -->
         <button id="changeAnotherContentBtn">Change The Content Below</button>
-        <div id="anotherContentDiv"><h4>Your Original Content</h4></div>
+        <div id="anotherContentDiv">
+            <h4>Your Original Content</h4>
+        </div>
         <script>
-            // Your code here
-
+            document.getElementById("changeAnotherContentBtn").addEventListener("click", function() {
+                document.getElementById("anotherContentDiv").textContent = "First content changed!";
+            });
         </script>
 
         <hr>
@@ -206,7 +211,7 @@
                 }
             });
         }
-        
+
             document.getElementById('handleYourAsyncButton').addEventListener('click', () => {
                 yourAsyncFunction()
                 .then(message => {
@@ -256,7 +261,7 @@
         <button id="fetchYourDataButton">Fetch Data</button>
         <div id="yourDataDisplay"><h4>[Your Fetched Data Here]</h4></div>
         <script>
-            document.getElementById('fetchYourDataButton').addEventListener('click', fetchYourData);
+            document.getElementById('fetchYourDataButton').addEventListener('click', fetchYourData());
         </script>
 
         <hr>

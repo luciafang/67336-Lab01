@@ -114,7 +114,7 @@ while (i <= 10) {
 let j = 20;
 while (j >= 1) {
     console.log(j)
-    i -= 2;
+    j -= 2;
 }
 
 // Challenge 2.1
@@ -134,14 +134,14 @@ console.log(arraySum(numbers));
 // Hint: use .join()
 
 // Your code here
-let fav_food = ['dim_sum', 'ramen', 'xiaolongbao', 'noodle', 'tomyum']
+let fav_food = ['dim_sum', 'ramen', 'xiaolongbao', 'noodle', 'tomyum'];
 fav_food.forEach(food => console.log(food));
 
 function print_food_with_comma(fav_food) {
-    const fav_food_res = array.map(fav_food).join(',');
+    const fav_food_res = fav_food.join(',');
     console.log(fav_food_res);    
 }
-print_food_with_comma(fav_food);
+
 
 // Challenge 2.2
 // Here we define a Person object with various properties like name, age, and job.
@@ -198,7 +198,7 @@ console.log(removeItem([1, 2, 3]));
 // Your code here
 function updateYear(car, newYear) {
     car.year = newYear;
-    return p;
+    return car;
 }
 console.log(updateYear({make: "BMW", model: "X5", year: 2022}, 2024)); 
 
@@ -229,8 +229,8 @@ console.log(myDiv, myP, myH1);
 // Make sure to use both getElementById() and querySelector() to get in practice with both!
 
 // Your code here
-let challengeDiv = document.getElementById("challengeDiv");
-let challengeP = document.querySelector(".challengeP");
+let challengeDiv = document.getElementById("anotherDiv");
+let challengeP = document.querySelector(".anotherP");
 let challengeH2 = document.querySelector("h2");
 console.log(challengeDiv, challengeP, challengeH2);
 
@@ -241,11 +241,11 @@ myDiv.textContent = "Hello, World!";
 
 // Write a program that changes the content of an element you selected in Challenge 3.1.
 // Your code here
-<button id="changeTextBtn">Change Text</button>
 let button = document.getElementById("changeTextBtn");
-button.addEventListener("click", function() {
-    myDiv.textContent = "Text changed on button click!";
-});
+let mySelectedDiv = document.getElementById("anotherContentDiv");
+
+anotherDiv.textContent = "Text changed on button click!";
+
 
 
 
@@ -261,7 +261,6 @@ newElement.textContent = "This is the paragraph added to the DOM.";
 document.body.appendChild(newElement);
 
 // Write code that creates a new element and adds it to the DOM.
-
 // Your code here
 let newDiv = document.createElement("div");  
 newDiv.textContent = "This is a new div added to the DOM.";  
@@ -336,6 +335,7 @@ function displayRawData(data) {
     dataDisplay.appendChild(rawElement);
 }
 
+
 // Challenge 5.2.2 | Example
 // Now that we've seen what the JSON response from the API endpoint looks like, we can take the API data and 
 // process/format it to be more readable and useful to us. See the example below for how we can do this.
@@ -352,17 +352,13 @@ function fetchData() {
 // This function displays our data in cleaner way on the page for better understanding.
 function displayData(data) {
     const dataDisplay = document.getElementById('dataDisplay');
-    dataDisplay.innerHTML = '';
+    dataDisplay.innerHTML = ''; // Clears previous data
 
     // Parses through the raw JSON to extract the information we want to display.
     data.forEach(user => {
-        // Dynamically creates each element.
         const userElement = document.createElement('div');
-        // Optional but allows us to easily add styling in later on for any divs with all elements with the class "user".
         userElement.classList.add('user');
-        // Dynamically generates the HTML we are using to display the data.
         userElement.innerHTML = `<p>Name: ${user.name} | Username: ${user.username} | Email: ${user.email} | Phone: ${user.phone}</p>`;
-        // Adds each userElement to the DOM to display it.
         dataDisplay.appendChild(userElement);
     });
 }
@@ -395,7 +391,7 @@ function displayYourData(data) {
     });
 }
 
-document.getElementById('fetchYourDataButton').addEventListener('click', fetchYourData);
+
 
 // Challenge 6
 // Deploy your project to GitHub Pages. Follow the instructions in instructions.ipynb.
