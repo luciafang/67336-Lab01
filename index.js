@@ -229,6 +229,10 @@ console.log(myDiv, myP, myH1);
 // Make sure to use both getElementById() and querySelector() to get in practice with both!
 
 // Your code here
+let challengeDiv = document.getElementById("challengeDiv");
+let challengeP = document.querySelector(".challengeP");
+let challengeH2 = document.querySelector("h2");
+console.log(challengeDiv, challengeP, challengeH2);
 
 
 // Challenge 3.2
@@ -236,7 +240,6 @@ console.log(myDiv, myP, myH1);
 myDiv.textContent = "Hello, World!";
 
 // Write a program that changes the content of an element you selected in Challenge 3.1.
-
 // Your code here
 <button id="changeTextBtn">Change Text</button>
 let button = document.getElementById("changeTextBtn");
@@ -287,30 +290,6 @@ document.body.appendChild(newDiv);
 // Write a function that returns a promise that resolves if a random number is greater than 0.5 and rejects otherwise, use `.then()` and `.catch()` to handle it.
 // Ensure that the result of the promise is displayed in the paragraph with the ID yourResult.
 // The text color of the result should be set to green for success and red for failure. 
-function getRandomNumberPromise() {
-    return new Promise((resolve, reject) => {
-        let randomNum = Math.random(); // Generate a random number between 0 and 1
-        if (randomNum > 0.5) {
-            resolve("Success! Number is greater than 0.5");
-        } else {
-            reject("Failure! Number is less than or equal to 0.5");
-        }
-    });
-}
-
-document.getElementById('handleYourAsyncButton').addEventListener('click', () => {
-    getRandomNumberPromise()
-        .then(message => {
-            let resultElement = document.getElementById('yourResult');
-            resultElement.textContent = message;
-            resultElement.style.color = 'green'; // Success - green color
-        })
-        .catch(error => {
-            let resultElement = document.getElementById('yourResult');
-            resultElement.textContent = error;
-            resultElement.style.color = 'red'; // Failure - red color
-        });
-});
 
 
 // Challenge 5.2
@@ -392,23 +371,26 @@ function displayData(data) {
 // and logs the response in a nice format similar to Example. Display the login and the url of each user.
 // Hint: use the helpful tip from the example in Challenge 5.2.1 to reference the JSON output quickly.
 
+// Function to fetch data from the GitHub API
 function fetchYourData() {
-    fetch('https://api.github.com/users')
-        .then(response => response.json())  // Convert the response to JSON
-        .then(data => displayYourData(data))  // Pass the JSON data to the display function
-        .catch(error => console.error('Error:', error));  // Log any errors
+    fetch('https://api.github.com/users')  // Make a GET request to the API
+        .then(response => response.json())  // Parse the JSON response
+        .then(data => displayYourData(data))  // Call the display function with the data
+        .catch(error => console.error('Error:', error));  // Catch and log any errors
 }
 
+// Function to display the fetched data
 function displayYourData(data) {
     const dataDisplay = document.getElementById('yourDataDisplay');
     dataDisplay.innerHTML = '';  // Clear previous data
-    
+
+    // Iterate through each user in the response data
     data.forEach(user => {
         // Create a div to display the user's login and URL
         const userElement = document.createElement('div');
-        userElement.innerHTML = `<p>Login: ${user.login} | URL: <a href="${user.html_url}">${user.html_url}</a></p>`;
+        userElement.innerHTML = `<p>Login: ${user.login} | URL: <a href="${user.html_url}" target="_blank">${user.html_url}</a></p>`;
         
-        // Add the user element to the display section
+        // Append the user element to the display section
         dataDisplay.appendChild(userElement);
     });
 }
