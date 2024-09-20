@@ -231,8 +231,8 @@ console.log(myDiv, myP, myH1);
 // Your code here
 let challengeDiv = document.getElementById("anotherDiv");
 let challengeP = document.querySelector(".anotherP");
-let challengeH2 = document.querySelector("h2");
-console.log(challengeDiv, challengeP, challengeH2);
+// let challengeH1 = document.querySelector("h1");
+console.log(challengeDiv, challengeP);
 
 
 // Challenge 3.2
@@ -241,8 +241,8 @@ myDiv.textContent = "Hello, World!";
 
 // Write a program that changes the content of an element you selected in Challenge 3.1.
 // Your code here
-let button = document.getElementById("changeTextBtn");
-let mySelectedDiv = document.getElementById("anotherContentDiv");
+let button = document.getElementById("changeContentBtn");
+let mySelectedDiv = document.getElementById("changeContentDiv");
 
 anotherDiv.textContent = "Text changed on button click!";
 
