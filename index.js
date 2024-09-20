@@ -231,7 +231,6 @@ console.log(myDiv, myP, myH1);
 // Your code here
 let challengeDiv = document.getElementById("anotherDiv");
 let challengeP = document.querySelector(".anotherP");
-// let challengeH1 = document.querySelector("h1");
 console.log(challengeDiv, challengeP);
 
 
