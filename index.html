@@ -124,10 +124,21 @@
         <!-- Challenge 4.1 | Your Turn -->
          <!-- Here's a resource for a potential hint: https://rb.gy/2vl4fs -->
         <div id="colorDiv" style="width:100px; height:100px; background-color:lightblue;"></div>
-        <script>
-            // Your code here
-        </script>
         <button id="colorBtn">Change Color</button>
+        <script>
+            let colorDiv = document.getElementById('colorDiv'); 
+            let colorBtn = document.getElementById('colorBtn'); 
+
+            colorBtn.addEventListener('click', function() {
+            // Toggle between two background colors
+            if (colorDiv.style.backgroundColor === 'lightblue') {
+                colorDiv.style.backgroundColor = 'lightgreen'; 
+            } else {
+                colorDiv.style.backgroundColor = 'lightblue'; 
+            }
+            });
+        </script>
+        <!-- <button id="colorBtn">Change Color</button> -->
 
         <hr>
     </section>

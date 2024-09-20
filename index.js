@@ -222,12 +222,14 @@ console.log(updateYear({make: "BMW", model: "X5", year: 2022}, 2024));
 let myDiv = document.getElementById("myDiv");
 let myP = document.querySelector(".myP");
 let myH1 = document.querySelector("h1");
+
 console.log(myDiv, myP, myH1);
 
 // Write JavaScript code to select the elements in the HTML snippet marked "Challenge 3.1 | Your Turn" and log them to the console.
 // Make sure to use both getElementById() and querySelector() to get in practice with both!
 
 // Your code here
+
 
 // Challenge 3.2
 // Here is an example of changing the content of an element we selected in Challenge 3.1:
@@ -236,6 +238,13 @@ myDiv.textContent = "Hello, World!";
 // Write a program that changes the content of an element you selected in Challenge 3.1.
 
 // Your code here
+<button id="changeTextBtn">Change Text</button>
+let button = document.getElementById("changeTextBtn");
+button.addEventListener("click", function() {
+    myDiv.textContent = "Text changed on button click!";
+});
+
+
 
 // See the section marked "Challenge 3.2 | Example" in index.html for an example of how we can use JS manipulation of selected elements to make a button.
 // Add a button to the HTML file and write a program that changes the content of a div when the button is clicked.
@@ -251,6 +260,10 @@ document.body.appendChild(newElement);
 // Write code that creates a new element and adds it to the DOM.
 
 // Your code here
+let newDiv = document.createElement("div");  
+newDiv.textContent = "This is a new div added to the DOM.";  
+document.body.appendChild(newDiv);  
+
 
 // See the section marked "Challenge 3.3.2 | Example" in index.html for a more advanced example of how we can use this ability to create and add elements to create a dynamic grocery list.
 
@@ -259,7 +272,8 @@ document.body.appendChild(newElement);
 // See the section marked "Challenge 4.1 | Example" in index.html for an example of how we can "react" to a button click (this is the event!) by displaying an alert.
 // Observe carefully how we added Event Listeners using the method addEventListener(), which attaches an event handler to our selected element.
 // Now under the section marked "Challenge 4.1 | Your Turn", write the event handling for a button that changes the background color of the colorDiv when clicked.
-// See the section marked "Challenge 4.1.2 | Example" in index.html for a more advanced example of using event listeners to log the coordinates of a mouse click within a specified area.
+// See the section marked "Challenge 4.1.2 | Example" in index.html for a more advanced example of using event listeners to log the coordinates of a mouse click within a specified area.   
+
 
 
 // Challenge 5.1
@@ -273,6 +287,31 @@ document.body.appendChild(newElement);
 // Write a function that returns a promise that resolves if a random number is greater than 0.5 and rejects otherwise, use `.then()` and `.catch()` to handle it.
 // Ensure that the result of the promise is displayed in the paragraph with the ID yourResult.
 // The text color of the result should be set to green for success and red for failure. 
+function getRandomNumberPromise() {
+    return new Promise((resolve, reject) => {
+        let randomNum = Math.random(); // Generate a random number between 0 and 1
+        if (randomNum > 0.5) {
+            resolve("Success! Number is greater than 0.5");
+        } else {
+            reject("Failure! Number is less than or equal to 0.5");
+        }
+    });
+}
+
+document.getElementById('handleYourAsyncButton').addEventListener('click', () => {
+    getRandomNumberPromise()
+        .then(message => {
+            let resultElement = document.getElementById('yourResult');
+            resultElement.textContent = message;
+            resultElement.style.color = 'green'; // Success - green color
+        })
+        .catch(error => {
+            let resultElement = document.getElementById('yourResult');
+            resultElement.textContent = error;
+            resultElement.style.color = 'red'; // Failure - red color
+        });
+});
+
 
 // Challenge 5.2
 // We will now learn about using the Fetch API in JS. 
@@ -354,14 +393,27 @@ function displayData(data) {
 // Hint: use the helpful tip from the example in Challenge 5.2.1 to reference the JSON output quickly.
 
 function fetchYourData() {
-    // Your code here
+    fetch('https://api.github.com/users')
+        .then(response => response.json())  // Convert the response to JSON
+        .then(data => displayYourData(data))  // Pass the JSON data to the display function
+        .catch(error => console.error('Error:', error));  // Log any errors
 }
 
 function displayYourData(data) {
     const dataDisplay = document.getElementById('yourDataDisplay');
-    dataDisplay.innerHTML = ''; 
-    // Your code here
+    dataDisplay.innerHTML = '';  // Clear previous data
+    
+    data.forEach(user => {
+        // Create a div to display the user's login and URL
+        const userElement = document.createElement('div');
+        userElement.innerHTML = `<p>Login: ${user.login} | URL: <a href="${user.html_url}">${user.html_url}</a></p>`;
+        
+        // Add the user element to the display section
+        dataDisplay.appendChild(userElement);
+    });
 }
+
+document.getElementById('fetchYourDataButton').addEventListener('click', fetchYourData);
 
 // Challenge 6
 // Deploy your project to GitHub Pages. Follow the instructions in instructions.ipynb.
