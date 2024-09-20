@@ -368,11 +368,13 @@ function displayData(data) {
 // Hint: use the helpful tip from the example in Challenge 5.2.1 to reference the JSON output quickly.
 
 // Function to fetch data from the GitHub API
-function fetchYourData() {
-    fetch('https://api.github.com/users')  // Make a GET request to the API
-        .then(response => response.json())  // Parse the JSON response
-        .then(data => displayYourData(data))  // Call the display function with the data
-        .catch(error => console.error('Error:', error));  // Catch and log any errors
+function fetchYourDataButton() {
+    console.log('Button clicked, starting fetch...');
+    fetch('https://api.github.com/users')
+    .then(response => response.json())
+    .then(data => {console.log(data);
+        displayYourData(data);})
+    .catch(error => console.error('Error:', error));
 }
 
 // Function to display the fetched data
@@ -384,10 +386,9 @@ function displayYourData(data) {
     data.forEach(user => {
         // Create a div to display the user's login and URL
         const userElement = document.createElement('div');
-        userElement.innerHTML = `<p>Login: ${user.login} | URL: <a href="${user.html_url}" target="_blank">${user.html_url}</a></p>`;
-        
-        // Append the user element to the display section
-        dataDisplay.appendChild(userElement);
+        userElement.classList.add('user');
+        userElement.innerHTML = `<strong>Login:</strong> ${user.login} <br> <strong>URL:</strong> <a href="${user.html_url}" target="_blank">${user.html_url}</a>`;
+        dataDisplay.appendChild(userElement); // Append each user info to the display div
     });
 }
 
